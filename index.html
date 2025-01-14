@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol id="names"> </ol>
+</body>
+<script>
+    fetch("http://localhost:5050/data")
+.then(response => response.json())
+.then(data => {
+        const list = document.getElementById("names");
+        data.forEach(element => {
+            const li = document.createElement("li");
+            li.innerHTML = element.name;
+            list.appendChild(li);
+        })
+})
+</script>
+</html>
